@@ -9,7 +9,7 @@ class aesEncrypt():
     def __init__(self,key):
         self.key = key
         self.mode = AES.MODE_CBC #plaintext length (in bytes) must be a multiple of block_size
-        self.iv = '1234567887654321'
+        self.iv = '1234567887654321' # ase key iv 
         
     def encrypt(self,text):
         cryptor = AES.new(self.key,self.mode,self.iv)
