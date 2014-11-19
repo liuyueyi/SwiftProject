@@ -293,7 +293,7 @@ class MyForm(QtGui.QMainWindow):
         #print 'The current index is : ' , self.ui.tabWidget.currentIndex() # 产看当前页面是在个人空间页面还是组空间页面
         
         fd = QtGui.QFileDialog(self)
-        fd.setDirectory(QtCore.QString("/home/wzb/datamodel/upload/"))
+        fd.setDirectory(QtCore.QString("./datamodel/upload/"))
         if fd.exec_() == QtGui.QDialog.Accepted:
             result = QtCore.QStringList(fd.selectedFiles())
             ans = []
