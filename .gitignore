@@ -1,3 +1,8 @@
 !.gitignore
 *~
 *pyc
+client/*~
+client/*pyc
+swauth/*.egg-info
+swauth/*.py[co]
+swauth/.DS_Store
