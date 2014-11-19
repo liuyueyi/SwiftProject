@@ -384,8 +384,11 @@ class MyForm(QtGui.QMainWindow):
             self.ui.addButton.setText('sure')
         else:
             containerName = str(self.ui.containerNameEdit.text().trimmed()).strip()
+            print 'wzb', containerName, '-------------'
             if len(containerName) > 0:
                 util.addContainer(self.userInfo['Auth Token'], self.userInfo['StorageURL'],  containerName)
+                if self.ui.containerList.count() == 0:
+                    self.ui.containerList.addItem(containerName)
                 self.ui.containerList.item(self.ui.containerList.count() - 1).setIcon(QtGui.QIcon("res/container.png"))
                 self.freshEvent()
             
