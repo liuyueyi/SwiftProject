@@ -19,25 +19,25 @@ elif [ $1 = 'show' ]; then
     swauth-list -K swauthkey $2
 
 elif [ $1 = 'allow' ]; then
-	cp datamodel/upload/allow.jpg .
+	cp upload/allow.jpg .
 	swift -A http://127.0.0.1:8080/auth/v1.0 -U Android:wzb -K wzb upload Image allow.jpg 
 	rm allow.jpg
 	swift -A http://127.0.0.1:8080/auth/v1.0 -U Android:wzb -K wzb post Image allow.jpg -m 'attr_policy:( developer or designer)  and( java or fressman)'
 
 elif [ $1 = 'forbid' ]; then
-	cp datamodel/upload/forbid.jpg .
+	cp upload/forbid.jpg .
     swift -A http://127.0.0.1:8080/auth/v1.0 -U Android:wzb -K wzb upload Image forbid.jpg 
 	rm forbid.jpg
 	swift -A http://127.0.0.1:8080/auth/v1.0 -U Android:wzb -K wzb post Image forbid.jpg -m 'attr_policy:( developer and game) and (java or fressman)' 
 
 elif [ $1 = 'delete' ]; then
-    swift -A http://127.0.0.1:8080/auth/v1.0 -U Android:wzb -K wzb delete Image $2
+	swift -A http://127.0.0.1:8080/auth/v1.0 -U Android:wzb -K wzb delete Image $2
 
 elif [ $1 = 'list' ]; then
-    swift -A http://127.0.0.1:8080/auth/v1.0 -U Android:wzb -K wzb list $2
+	swift -A http://127.0.0.1:8080/auth/v1.0 -U Android:wzb -K wzb list $2
 
 elif [ $1 = 'cmd' ]; then
-	swift -A http://127.0.0.1:8080/auth/v1.0 -U Android:wzb -K wzb $2 $3 $4
+	swift -A http://127.0.0.1:8080/auth/v1.0 -U Android:wzb -K wzb $2 $3 $4 $5 $6
 
 else
     echo ''
