@@ -2,9 +2,9 @@
 if [ $1 = 'add' ]; then
     swauth-add-account -K swauthkey Android  -G 'java,it,cs,android,developer,coder,designer,game,application,ad,fressman,veteran' -I 'android develop group'
     swauth-add-user -K swauthkey -a wzb wzb wzb -G 'Android'
-    swauth-add-user -K swauthkey -a Android wzb wzb -I 'java,it,cs,android,fressman,game,developer'
+    swauth-add-user -K swauthkey -a Android wzb wzb -I 'java it cs android fressman game developer'
     swauth-add-user -K swauthkey -a wxj wxj wxj -G 'Android'
-    swauth-add-user -K swauthkey -a Android wxj wxj -I 'java,it,cs,android,fressman,appliaction,designer'
+    swauth-add-user -K swauthkey -a Android wxj wxj -I 'java it cs android fressman appliaction designer'
 
 elif [ $1 = 'remove' ]; then
     swauth-delete-user -K swauthkey wzb wzb
@@ -22,13 +22,13 @@ elif [ $1 = 'allow' ]; then
 	cp upload/allow.jpg .
 	swift -A http://127.0.0.1:8080/auth/v1.0 -U Android:wzb -K wzb upload Image allow.jpg 
 	rm allow.jpg
-	swift -A http://127.0.0.1:8080/auth/v1.0 -U Android:wzb -K wzb post Image allow.jpg -m 'attr_policy:( developer or designer)  and( java or fressman)'
+	swift -A http://127.0.0.1:8080/auth/v1.0 -U Android:wzb -K wzb post Image allow.jpg -m 'attr_policy:(developer or designer)and(java or fressman)'
 
 elif [ $1 = 'forbid' ]; then
 	cp upload/forbid.jpg .
     swift -A http://127.0.0.1:8080/auth/v1.0 -U Android:wzb -K wzb upload Image forbid.jpg 
 	rm forbid.jpg
-	swift -A http://127.0.0.1:8080/auth/v1.0 -U Android:wzb -K wzb post Image forbid.jpg -m 'attr_policy:( developer and game) and (java or fressman)' 
+	swift -A http://127.0.0.1:8080/auth/v1.0 -U Android:wzb -K wzb post Image forbid.jpg -m 'attr_policy:(developer and game)and(java or fressman)' 
 
 elif [ $1 = 'delete' ]; then
 	swift -A http://127.0.0.1:8080/auth/v1.0 -U Android:wzb -K wzb delete Image $2
