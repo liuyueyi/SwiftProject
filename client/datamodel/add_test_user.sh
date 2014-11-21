@@ -13,39 +13,39 @@ if [ $1 = 'user' ]; then
 elif [ $1 = 'file' ]; then
         #two layer......
         # test1 and test2 can access
-        swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 upload two0.jpg
+        swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 upload Image two0.jpg
         swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 post Image two0.jpg -m 'attr_policy:attr10 or attr11'
         # test1 can access
-        swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 upload two1.jpg
-        swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 post Image two1.jpg -m 'attr_policy:attr10 and attr55'
+        swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 upload Image two1.jpg
+        swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 post Image two1.jpg -m 'attr_policy:attr10 and attr34'
         
         #three layer.........
         # only test1 can access
-        swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 upload three0.jpg
+        swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 upload Image three0.jpg
         swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 post Image three0.jpg -m 'attr_policy:(attr10 or attr11)and(attr13 or attr15)'
         #test1 and test2 can access
-        swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 upload three1.jpg
+        swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 upload Image three1.jpg
         swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 post Image three1.jpg -m 'attr_policy:(attr10 and attr13)or(attr11 and attr53)'
         
         #four layer........
         #test1 can access
-        swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 upload four0.jpg
+        swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 upload Image four0.jpg
         swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 post Image four0.jpg -m 'attr_policy:((attr10 or attr11)and(attr12 or attr13))and((attr16 or attr17)and(attr18 or attr19))'
         #test1 and test2 can access
-        swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 upload four1.jpg
-        swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 post Image fout1.jpg -m 'attr_policy:((attr10 and attr13)or(attr11 or attr14))and((attr19 and attr16)or(attr17 and attr20))'
+        swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 upload Image four1.jpg
+        swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 post Image four1.jpg -m 'attr_policy:((attr10 and attr13)or(attr11 or attr14))and((attr19 and attr16)or(attr17 and attr20))'
         
         #five layer.....
         #test1 can access
-        swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 upload five0.jpg
+        swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 upload Image five0.jpg
         swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 post Image five0.jpg -m 'attr_policy:(((attr10 or attr11)and(attr12 or attr13))and((attr16 or attr17)and(attr18 or attr19)))and(((attr22 or attr23)and(attr24 or attr25))and((attr28 or attr29)and(attr30 or attr31)))'
         #test1 and test2 can access
-        swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 upload five1.jpg
+        swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 upload Image five1.jpg
         swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 post Image five1.jpg -m 'attr_policy:(((attr10 and attr13)or(attr11 or attr14))and((attr19 and attr16)or(attr17 and attr20)))and(((attr1 and attr4)or(attr5 or attr8))and((attr25 and attr22)or(attr23 and attr26)))'
         
         #six layer.....
         #test1 can access
-        swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 upload six.jpg
+        swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 upload Image six.jpg
         swift -A http://127.0.0.1:8080/auth/v1.0 -U Test:test1 -K test1 post Image six.jpg -m 'attr_policy:((((attr10 or attr14)and attr13)and((attr22 or attr23)and(attr24 or attr25)))and(attr27 or attr31)) and ((((attr1 or attr2)and(attr3 or attr4)) and ((attr7 or attr8)and(attr9 or attr10))) and ((attr22 or attr25)and(attr28 and attr31)))'
 
 elif [ $1 = 'delete' ]; then
